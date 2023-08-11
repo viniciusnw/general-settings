@@ -1,0 +1,49 @@
+type SocialMedia {
+    facebook: String
+    instagram: String
+    linkedin: String
+    twitter: String
+    youtube: String
+}
+
+type PaymentFlags {
+    visa: Boolean
+    mastercard: Boolean
+    amex: Boolean
+    diners: Boolean
+    hipercard: Boolean
+    pix: Boolean
+    boleto: Boolean
+}
+
+type GeneralSettings {
+    social_media: SocialMedia
+    payment_flags: PaymentFlags
+}
+
+type Query {
+    generalSettings: GeneralSettings
+        @resolver(
+            class: "CastleIt\\GeneralSettings\\Model\\Resolver\\GeneralSettings"
+        )
+    
+    headless: Headless
+        @resolver(
+            class: "CastleIt\\GeneralSettings\\Model\\Resolver\\ViewSettings"
+        )
+}
+
+type Headless {
+    magento: Magento
+    modules: [Module]
+}
+
+type Magento {
+    version: String
+    edition: String
+}
+
+type Module {
+    name: String
+    status: Boolean
+}

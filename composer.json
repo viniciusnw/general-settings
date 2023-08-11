@@ -1,0 +1,17 @@
+{
+    "name": "castle/generalsettings",
+    "description": "general settings",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Castle\\GeneralSettings\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
